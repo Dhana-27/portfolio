@@ -1,0 +1,939 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Design Tokens — Light Mode (Default)
+   Apple HIG: clarity, deference, depth
+   ============================================================ */
+:root {
+  /* Background gradient — Light (Apple.com whites) */
+  --bg-gradient-from: #ffffff;
+  --bg-gradient-via: #f5f5f7;
+  --bg-gradient-to: #fbfbfd;
+  --glow-color: rgba(194, 0, 101, 0.05);
+
+  /* Glass shape token — used by card border-radius */
+  --glass-radius: 28px;
+  /* Fallback glass — luminous frosted white */
+  --glass-fallback-bg: rgba(255, 255, 255, 0.24);
+  --glass-fallback-border: rgba(0, 0, 0, 0.05);
+  --glass-fallback-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  /* Shell (WebGL backing) */
+  --glass-shell-fill: rgba(255, 255, 255, 0.20);
+  --glass-shell-fill-strong: rgba(255, 255, 255, 0.36);
+  --glass-shell-border: rgba(255, 255, 255, 0.58);
+  --glass-shell-highlight: rgba(255, 255, 255, 0.88);
+  --glass-shell-shadow: rgba(0, 0, 0, 0.06);
+  --glass-inner-bg: rgba(255, 255, 255, 0.28);
+  --glass-inner-border: rgba(255, 255, 255, 0.44);
+  --glass-divider: rgba(0, 0, 0, 0.06);
+  --glass-floating-bg: rgba(255, 255, 255, 0.26);
+  --glass-floating-border: rgba(0, 0, 0, 0.05);
+  --glass-scene-veil-strength: 1.08;
+  /* Prism micro-surface — Apple-grade frosted panels */
+  --prism-fill: rgba(255, 255, 255, 0.1);
+  --prism-fill-strong: rgba(255, 255, 255, 0.14);
+  --prism-border: rgba(255, 255, 255, 0.22);
+  --prism-highlight: rgba(255, 255, 255, 0.28);
+  --prism-shadow: rgba(15, 23, 42, 0.05);
+  --prism-tint-rgb: 190, 24, 93;
+  --prism-orb-glow: rgba(255, 255, 255, 0);
+  --prism-press-depth: 0.985;
+  /* Surface tokens — minimal inner glass surfaces (replaces prism noise) */
+  --surface-bg: rgba(255, 255, 255, 0.10);
+  --surface-bg-strong: rgba(255, 255, 255, 0.16);
+  --surface-border: rgba(255, 255, 255, 0.16);
+  --surface-border-hover: rgba(255, 255, 255, 0.24);
+  /* iOS media card material — Apple Music frosted glass */
+  --ios-material-bg: rgba(255, 255, 255, 0.3);
+  --ios-material-border: rgba(255, 255, 255, 0.60);
+  --ios-material-shadow: 0 16px 48px rgba(0, 0, 0, 0.10), 0 4px 12px rgba(0, 0, 0, 0.06);
+  --ios-material-highlight: rgba(255, 255, 255, 0.80);
+  --ios-control-bg: rgba(255, 255, 255, 0.32);
+  --ios-control-border: rgba(255, 255, 255, 0.48);
+  --ios-progress-track: rgba(0, 0, 0, 0.08);
+  --ios-progress-fill: rgba(194, 0, 101, 0.88);
+
+  /* Theme tint — Vivid Rose (Apple-grade saturation) */
+  --tint-color: #c8005d;
+  --tint-rgb: 200, 0, 93;
+
+  /* Typography — Apple canonical label colors */
+  --text-primary: #1d1d1f;
+  --text-secondary: #1e293b;
+  --text-tertiary: #475569;
+
+  /* Background overlay for bg image — Light */
+  --bg-overlay: rgba(244, 247, 251, 0.38);
+  --bg-overlay-gradient-top: rgba(248, 250, 252, 0.76);
+  --bg-overlay-gradient-bottom: rgba(241, 245, 249, 0.62);
+
+  /* Scrollbar */
+  --scrollbar-thumb: rgba(0, 0, 0, 0.18);
+
+  /* Social icon bg */
+  --icon-bg: rgba(255, 255, 255, 0.32);
+  --icon-border: rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================================
+   Design Tokens — Dark Mode (System Preference)
+   Apple HIG: Space Black + luminous glass
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Background gradient — dark handled by site.ts theme injection */
+    --bg-gradient-from: #000000;
+    --bg-gradient-via: #0a0a0f;
+    --bg-gradient-to: #111116;
+    --glow-color: rgba(255, 55, 95, 0.12);
+
+    /* Theme tint — Apple Vibrant Rose */
+    --tint-color: #ff375f;
+    --tint-rgb: 255, 55, 95;
+    /* Fallback glass — deep space frosted */
+    --glass-fallback-bg: rgba(0, 0, 0, 0.52);
+    --glass-fallback-border: rgba(255, 255, 255, 0.10);
+    --glass-fallback-shadow: 0 8px 40px rgba(0, 0, 0, 0.56), 0 2px 10px rgba(0, 0, 0, 0.36);
+    /* Shell */
+    --glass-shell-fill: rgba(255, 255, 255, 0.06);
+    --glass-shell-fill-strong: rgba(255, 255, 255, 0.10);
+    --glass-shell-border: rgba(255, 255, 255, 0.11);
+    --glass-shell-highlight: rgba(255, 255, 255, 0.16);
+    --glass-shell-shadow: rgba(0, 0, 0, 0.64);
+    --glass-inner-bg: rgba(255, 255, 255, 0.052);
+    --glass-inner-border: rgba(255, 255, 255, 0.082);
+    --glass-divider: rgba(255, 255, 255, 0.07);
+    --glass-floating-bg: rgba(28, 28, 30, 0.80);
+    --glass-floating-border: rgba(255, 255, 255, 0.09);
+    --glass-scene-veil-strength: 1.06;
+    /* Prism micro-surface — darker, luminous highlight edges */
+    --prism-fill: rgba(255, 255, 255, 0.035);
+    --prism-fill-strong: rgba(255, 255, 255, 0.055);
+    --prism-border: rgba(255, 255, 255, 0.09);
+    --prism-highlight: rgba(255, 255, 255, 0.12);
+    --prism-shadow: rgba(2, 6, 23, 0.16);
+    --prism-tint-rgb: 251, 113, 133;
+    --prism-orb-glow: rgba(255, 255, 255, 0);
+    --prism-press-depth: 0.985;
+    /* Surface tokens — luminous inner glass surfaces */
+    --surface-bg: rgba(255, 255, 255, 0.052);
+    --surface-bg-strong: rgba(255, 255, 255, 0.082);
+    --surface-border: rgba(255, 255, 255, 0.082);
+    --surface-border-hover: rgba(255, 255, 255, 0.13);
+    /* iOS media card material — Apple Music dark */
+    --ios-material-bg: rgba(28, 28, 30, 0.68);
+    --ios-material-border: rgba(255, 255, 255, 0.10);
+    --ios-material-shadow: 0 16px 48px rgba(0, 0, 0, 0.60), 0 4px 12px rgba(0, 0, 0, 0.44);
+    --ios-material-highlight: rgba(255, 255, 255, 0.11);
+    --ios-control-bg: rgba(255, 255, 255, 0.08);
+    --ios-control-border: rgba(255, 255, 255, 0.10);
+    --ios-progress-track: rgba(255, 255, 255, 0.11);
+    --ios-progress-fill: rgba(255, 55, 95, 0.92);
+
+    /* Typography — Apple dark canonical label colors */
+    --text-primary: #f5f5f7;
+    --text-secondary: #c7c7cc;
+    --text-tertiary: #8e8e93;
+
+    /* Background overlay for bg image — Dark */
+    --bg-overlay: rgba(0, 0, 0, 0.28);
+    --bg-overlay-gradient-top: rgba(0, 0, 0, 0.58);
+    --bg-overlay-gradient-bottom: rgba(10, 10, 15, 0.48);
+
+    /* Scrollbar */
+    --scrollbar-thumb: rgba(255, 255, 255, 0.08);
+
+    /* Social icon bg */
+    --icon-bg: rgba(255, 255, 255, 0.05);
+    --icon-border: rgba(255, 255, 255, 0.07);
+  }
+}
+
+/* ============================================================
+   Tailwind v4 Theme Inline
+   ============================================================ */
+@theme inline {
+  --color-background: var(--bg-gradient-via);
+  --color-foreground: var(--text-primary);
+  --color-tint: var(--tint-color);
+  --color-glass-bg: var(--glass-floating-bg);
+  --color-glass-border: var(--glass-floating-border);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  /* Apple SF Pro-style system font stack */
+  --font-sans: -apple-system, "BlinkMacSystemFont", "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Helvetica", system-ui, sans-serif;
+  --animate-wave: wave 2.5s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.6s ease-out both;
+}
+
+/* Wave hand animation */
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(14deg);
+  }
+
+  20% {
+    transform: rotate(-8deg);
+  }
+
+  30% {
+    transform: rotate(14deg);
+  }
+
+  40% {
+    transform: rotate(-4deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Fade-in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   Global Body
+   ============================================================ */
+body {
+  color: var(--text-primary);
+  /* Quicksand as display font, Apple SF Pro as system fallback */
+  font-family: var(--font-quicksand), -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+.bg-image-layer {
+  object-fit: cover;
+  object-position: center;
+  transform: translateZ(0);
+  will-change: opacity;
+}
+
+.bg-image-layer--current {
+  opacity: 1;
+}
+
+.bg-image-layer--previous {
+  opacity: 1;
+  animation: bg-fade-out 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes bg-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   Glass Card — Liquid Glass (WebGL2 canvas-driven)
+   The glass surface is rendered by LiquidGlassCanvas.
+   This rule only sets the z-index stack for content.
+   ============================================================ */
+.glass-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.glass-card {
+  border-radius: var(--glass-radius);
+  isolation: isolate;
+  overflow: hidden;
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:root[data-liquid-glass="loading"] .glass-card {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:root[data-liquid-glass="loading"] .glass-card::before {
+  content: none;
+  opacity: 0;
+  box-shadow: none;
+}
+
+:root[data-liquid-glass="loading"] .glass-card::after {
+  content: none;
+  opacity: 0;
+}
+
+.glass-card::before,
+.glass-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.glass-card::before {
+  z-index: 1;
+  opacity: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.04) 22%,
+      transparent 54%,
+      rgba(255, 255, 255, 0.03) 100%
+    );
+  box-shadow: 0 18px 36px var(--glass-shell-shadow);
+}
+
+.glass-card::after {
+  z-index: 1;
+  inset: 1px;
+  opacity: 0;
+  border-radius: calc(var(--glass-radius) - 1px);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.02) 18%,
+      transparent 38%,
+      transparent 76%,
+      rgba(255, 255, 255, 0.015) 90%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
+}
+
+:root[data-liquid-glass="fallback"] .glass-card {
+  border-radius: var(--glass-radius);
+  background: var(--glass-fallback-bg);
+  border-color: var(--glass-fallback-border);
+  box-shadow: var(--glass-fallback-shadow);
+  backdrop-filter: blur(var(--glass-fallback-blur, 18px)) saturate(1.3);
+  -webkit-backdrop-filter: blur(var(--glass-fallback-blur, 18px)) saturate(1.3);
+}
+
+:root[data-liquid-glass="fallback"] .glass-card::before {
+  opacity: 0.18;
+  box-shadow: 0 18px 36px var(--glass-shell-shadow);
+}
+
+:root[data-liquid-glass="fallback"] .glass-card::after {
+  opacity: 0.08;
+}
+
+:root[data-liquid-glass="ready"] .glass-card {
+  background: transparent;
+  border-width: 0;
+  border-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:root[data-liquid-glass="ready"] .glass-card::before {
+  content: none;
+  opacity: 0;
+  box-shadow: none;
+}
+
+:root[data-liquid-glass="ready"] .glass-card::after {
+  content: none;
+  opacity: 0;
+}
+
+.liquid-glass-canvas {
+  opacity: 0;
+  /* Transition is applied via JS inline style (600ms ease) on first render.
+     This CSS rule acts as a non-JS fallback and keeps opacity=0 until ready. */
+  transition: opacity 600ms ease;
+}
+
+:root[data-liquid-glass="ready"] .liquid-glass-canvas {
+  opacity: 1;
+}
+
+/* When WebGL glass is active, disable Prism inner backdrop-filter
+   to avoid double-blur artifacts inside the glass shell */
+:root[data-liquid-glass="ready"] .glass-card .prism-panel,
+:root[data-liquid-glass="ready"] .glass-card .prism-badge,
+:root[data-liquid-glass="ready"] .glass-card .prism-orb-button,
+:root[data-liquid-glass="ready"] .glass-card .prism-pill,
+:root[data-liquid-glass="ready"] .glass-card .prism-avatar-disc {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* ============================================================
+   Prism Micro-Surface System — Clarity-First
+   Three semantic layers:
+     prism-panel / prism-orb-button / prism-avatar-disc → neutral glass
+     prism-pill  → tinted capsule (iOS filter chip, accent-hued)
+     prism-badge → accent categorical label
+   Zero pseudo-elements. Zero backdrop-filter (avoids perf hit on
+   small elements and double-blur inside glass shell).
+   ============================================================ */
+
+/* Shared structural base */
+.prism-panel,
+.prism-badge,
+.prism-orb-button,
+.prism-pill,
+.prism-avatar-disc {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: inherit;
+}
+
+/* Disable pseudo-elements — no noise */
+.prism-panel::before, .prism-panel::after,
+.prism-badge::before, .prism-badge::after,
+.prism-orb-button::before, .prism-orb-button::after,
+.prism-pill::before, .prism-pill::after,
+.prism-avatar-disc::before, .prism-avatar-disc::after {
+  content: none;
+}
+
+/* Neutral glass surfaces */
+.prism-panel,
+.prism-orb-button,
+.prism-avatar-disc {
+  background: var(--surface-bg);
+  border: 1px solid var(--surface-border);
+}
+
+/* Tinted capsule — iOS 17-style filter chip */
+.prism-pill {
+  background: rgba(var(--tint-rgb), 0.08);
+  border: 1px solid rgba(var(--tint-rgb), 0.20);
+  color: var(--text-secondary);
+}
+
+/* Accent micro-label — categorical badge */
+.prism-badge {
+  background: rgba(var(--tint-rgb), 0.09);
+  border: 1px solid rgba(var(--tint-rgb), 0.18);
+  color: var(--tint-color);
+}
+
+.prism-static {
+  transform: translateZ(0);
+}
+
+.prism-interactive {
+  transform: translateZ(0);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  /* NOTE: no 'transform' here — Framer Motion owns all transform animations.
+     Adding transform to CSS transition would hijack FM spring physics. */
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    opacity 200ms ease;
+}
+
+.prism-interactive:focus-visible {
+  outline: 2px solid rgba(var(--tint-rgb), 0.32);
+  outline-offset: 2px;
+}
+
+/* Press feedback — opacity only; scale is handled by Framer Motion whileTap */
+.prism-interactive:active {
+  opacity: 0.82;
+  transition: opacity 55ms ease-out;
+}
+
+/* Panel / orb / avatar — neutral hover intensify */
+.prism-panel.prism-interactive:hover,
+.prism-orb-button.prism-interactive:hover,
+.prism-avatar-disc.prism-interactive:hover {
+  background: var(--surface-bg-strong);
+  border-color: var(--surface-border);
+}
+
+/* Pill — tint-intensify on hover + soft glow */
+.prism-pill.prism-interactive:hover {
+  background: rgba(var(--tint-rgb), 0.11);
+  border-color: rgba(var(--tint-rgb), 0.24);
+}
+
+/* Panel: subtle edge highlight */
+.prism-panel {
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--prism-highlight) 56%, transparent);
+}
+
+/* Orb button: platform color glow on hover */
+.prism-orb-button {
+  transition:
+    background 200ms cubic-bezier(0.25, 0.1, 0.25, 1),
+    border-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.prism-orb-button.prism-interactive:hover {
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--prism-highlight) 62%, transparent);
+}
+
+/* Interactive glass card — content dims on press (canvas renders separately, not affected) */
+.glass-card[data-glass-interactive="true"] {
+  transition: filter 240ms ease;
+}
+
+.glass-card[data-glass-interactive="true"]:active {
+  filter: brightness(0.88) saturate(0.92);
+  transition: filter 55ms ease-out;
+}
+
+.glass-divider {
+  border-color: var(--glass-divider);
+}
+
+.glass-floating-ui {
+  background: var(--glass-floating-bg);
+  border: 1px solid var(--glass-floating-border);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--prism-highlight) 72%, transparent),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.04),
+    0 12px 32px color-mix(in srgb, var(--prism-shadow) 80%, transparent);
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+}
+
+.glass-media-mask {
+  border-radius: inherit;
+  overflow: hidden;
+}
+.ios-media-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--glass-radius);
+  border: none;
+  background:
+    linear-gradient(160deg,
+      color-mix(in srgb, var(--ios-material-bg) 90%, white 10%) 0%,
+      var(--ios-material-bg) 100%);
+  box-shadow: var(--ios-material-shadow);
+  backdrop-filter: blur(28px) saturate(1.8);
+  -webkit-backdrop-filter: blur(28px) saturate(1.8);
+}
+
+.ios-media-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  pointer-events: none;
+  border-radius: calc(var(--glass-radius) - 1px);
+  background:
+    linear-gradient(160deg,
+      var(--ios-material-highlight) 0%,
+      rgba(255, 255, 255, 0.04) 36%,
+      rgba(var(--prism-tint-rgb), 0.012) 100%);
+  opacity: 0.7;
+}
+
+.ios-media-card__panel {
+  position: relative;
+  z-index: 1;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.ios-media-card__album {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28), 0 4px 10px rgba(0, 0, 0, 0.14);
+}
+
+.ios-media-card__button {
+  background: var(--ios-control-bg);
+  border: 1px solid var(--ios-control-border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 4px 12px rgba(0, 0, 0, 0.14);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  transition: filter 180ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 100ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.ios-media-card__button:hover {
+  filter: brightness(1.06);
+}
+
+.ios-media-card__button:active {
+  transform: scale(0.96);
+}
+
+.ios-media-card__progress {
+  background: var(--ios-progress-track);
+}
+
+.ios-media-card__progress-fill {
+  background: var(--ios-progress-fill);
+}
+
+/* ============================================================
+   Scrollbar — Minimal
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+/* ============================================================
+   Typewriter Cursor Blink
+   ============================================================ */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   Liquid Glass — Light Sweep Animation
+   Moves the diagonal gloss stripe across the card surface
+   ============================================================ */
+@keyframes liquid-shine {
+  0% {
+    background-position: 0 0, -100% 0;
+    opacity: 0.6;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  50% {
+    background-position: 0 0, 0% 0;
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    background-position: 0 0, 100% 0;
+    opacity: 0.6;
+  }
+}
+
+/* ============================================================
+   Floating Color Orbs (Background Liquid Motion)
+   ============================================================ */
+@keyframes float-orb-1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(80px, -60px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-40px, 40px) scale(0.95);
+  }
+}
+
+@keyframes float-orb-2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(-70px, 50px) scale(1.05);
+  }
+
+  66% {
+    transform: translate(60px, -30px) scale(0.9);
+  }
+}
+
+@keyframes float-orb-3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(50px, 70px) scale(0.95);
+  }
+
+  66% {
+    transform: translate(-80px, -40px) scale(1.1);
+  }
+}
+
+/* ============================================================
+   Map Card — Mapbox Interactive Map
+   ============================================================ */
+.map-card {
+  padding: 0 !important;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--glass-radius);
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--glass-radius);
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--surface-bg-strong) 72%, transparent),
+      color-mix(in srgb, var(--surface-bg) 46%, transparent)
+    ),
+    radial-gradient(circle at 32% 28%, rgba(var(--tint-rgb), 0.16), transparent 34%),
+    linear-gradient(
+      90deg,
+      transparent 0 12%,
+      color-mix(in srgb, var(--glass-divider) 78%, transparent) 12% 12.5%,
+      transparent 12.5% 28%,
+      color-mix(in srgb, var(--glass-divider) 66%, transparent) 28% 28.4%,
+      transparent 28.4% 100%
+    );
+}
+
+.map-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: linear-gradient(to bottom,
+      var(--glass-inner-bg) 0%,
+      transparent 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10;
+  pointer-events: none;
+  border-radius: var(--glass-radius) var(--glass-radius) 0 0;
+}
+
+/* Custom map marker — tint-colored pulse dot */
+.map-marker {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--tint-color);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 8px rgba(var(--tint-rgb), 0.5);
+  cursor: pointer;
+  position: relative;
+}
+
+.map-marker::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(var(--tint-rgb), 0.4);
+  animation: map-pulse 2s ease-out infinite;
+}
+
+@keyframes map-pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Popup overrides — glassmorphism theme */
+.map-popup .mapboxgl-popup-content {
+  background: var(--glass-floating-bg);
+  backdrop-filter: blur(12px) saturate(1.08);
+  -webkit-backdrop-filter: blur(12px) saturate(1.08);
+  border: 1px solid var(--glass-floating-border);
+  border-radius: 12px;
+  padding: 8px 14px;
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--prism-highlight) 66%, transparent),
+    0 10px 22px color-mix(in srgb, var(--prism-shadow) 72%, transparent);
+}
+
+.map-popup .mapboxgl-popup-tip {
+  border-top-color: var(--glass-floating-bg);
+}
+
+.map-popup-content {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* Hide Mapbox logo & attribution */
+.map-card .mapboxgl-ctrl-logo,
+.map-card .mapboxgl-ctrl-attrib {
+  display: none !important;
+}
+
+/* ============================================================
+   Map Card — Visitor Marker (Blue Pulse)
+   ============================================================ */
+.map-visitor-marker {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #3b82f6;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+  cursor: pointer;
+  position: relative;
+}
+
+.map-visitor-marker::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(59, 130, 246, 0.5);
+  animation: map-pulse 2s ease-out infinite;
+}
+
+/* ============================================================
+   Map Card — Distance Badge (Bottom Overlay)
+   ============================================================ */
+.map-distance-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--glass-floating-bg);
+  backdrop-filter: blur(10px) saturate(1.08);
+  -webkit-backdrop-filter: blur(10px) saturate(1.08);
+  border: 1px solid var(--glass-floating-border);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  z-index: 10;
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--prism-highlight) 66%, transparent),
+    0 10px 22px color-mix(in srgb, var(--prism-shadow) 72%, transparent);
+  pointer-events: none;
+  animation: fade-in 0.6s ease-out both;
+  animation-delay: 0.3s;
+}
+
+.map-distance-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3b82f6;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
+  flex-shrink: 0;
+}
+
+.map-distance-sep {
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+.map-distance-km {
+  color: var(--tint-color);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================
+   Map Card — Arc Distance Label
+   ============================================================ */
+.map-arc-distance {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  padding: 4px 10px;
+  background: var(--glass-floating-bg);
+  backdrop-filter: blur(8px) saturate(1.08);
+  -webkit-backdrop-filter: blur(8px) saturate(1.08);
+  border: 1px solid var(--glass-floating-border);
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--prism-highlight) 66%, transparent),
+    0 8px 18px color-mix(in srgb, var(--prism-shadow) 72%, transparent);
+  pointer-events: none;
+  font-family: var(--font-sans);
+}
+
+.map-arc-distance::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: var(--glass-floating-border) transparent transparent transparent;
+}
