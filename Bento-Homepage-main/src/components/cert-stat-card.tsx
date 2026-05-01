@@ -6,7 +6,8 @@ import { GlassCard } from "@/components/glass-card";
 import { siteConfig } from "@/config/site";
 
 export function CertStatCard() {
-    const certCount = siteConfig.friends.length;
+    // The user has 30+ total certifications.
+    // Displaying 30+ hardcoded instead of array length.
 
     return (
         <GlassCard variant="panel" className="flex h-full flex-col items-center justify-center p-6 relative overflow-hidden">
@@ -21,7 +22,7 @@ export function CertStatCard() {
                 </div>
                 <div className="text-center">
                     <span className="text-5xl font-bold tracking-tight text-text-primary block mb-1">
-                        {certCount}+
+                        30+
                     </span>
                     <span className="text-[13px] font-medium text-text-secondary uppercase tracking-wider">
                         Certifications Done

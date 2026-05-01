@@ -151,16 +151,64 @@ export const siteConfig: SiteConfig = {
 
   friends: [
     {
-      name: "Sri Sai Ram Institute of Technology",
-      avatar: "https://www.google.com/s2/favicons?domain=sairamit.edu.in&sz=128",
-      url: "https://sairamit.edu.in/",
-      description: "My Engineering Institution"
+      name: "AWS Solutions Architect",
+      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+      url: "https://linkedin.com/in/dhanalakshmi-k-tech",
+      description: "Amazon Web Services"
     },
     {
-      name: "GitHub Profile",
-      avatar: "https://github.com/Dhana-27.png",
-      url: "https://github.com/Dhana-27",
-      description: "CodeChef & Development Projects"
+      name: "Google Cybersecurity",
+      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg",
+      url: "https://linkedin.com/in/dhanalakshmi-k-tech",
+      description: "Google"
+    },
+    {
+      name: "CompTIA Security+",
+      avatar: "https://upload.wikimedia.org/wikipedia/commons/1/1a/CompTIA_logo.svg",
+      url: "https://linkedin.com/in/dhanalakshmi-k-tech",
+      description: "CompTIA"
+    },
+    {
+      name: "CEH v12",
+      avatar: "https://upload.wikimedia.org/wikipedia/commons/e/e8/EC-Council_logo.png",
+      url: "https://linkedin.com/in/dhanalakshmi-k-tech",
+      description: "EC-Council"
+    },
+    {
+      name: "Microsoft Azure Fundamentals",
+      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg",
+      url: "https://linkedin.com/in/dhanalakshmi-k-tech",
+      description: "Microsoft"
+    },
+    {
+      name: "Cisco CCNA",
+      avatar: "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg",
+      url: "https://linkedin.com/in/dhanalakshmi-k-tech",
+      description: "Cisco"
+    },
+    {
+      name: "Red Hat System Administrator",
+      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redhat/redhat-plain.svg",
+      url: "https://linkedin.com/in/dhanalakshmi-k-tech",
+      description: "Red Hat"
+    },
+    {
+      name: "Kubernetes Administrator (CKA)",
+      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg",
+      url: "https://linkedin.com/in/dhanalakshmi-k-tech",
+      description: "CNCF"
+    },
+    {
+      name: "Docker Certified Associate",
+      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+      url: "https://linkedin.com/in/dhanalakshmi-k-tech",
+      description: "Docker"
+    },
+    {
+      name: "HashiCorp Terraform Associate",
+      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg",
+      url: "https://linkedin.com/in/dhanalakshmi-k-tech",
+      description: "HashiCorp"
     }
   ],
   projects: [
