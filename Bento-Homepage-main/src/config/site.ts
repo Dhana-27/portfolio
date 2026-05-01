@@ -166,8 +166,8 @@ export const siteConfig: SiteConfig = {
     },
     {
       name: "MicroZard",
-      description: "An agritech innovation using CNNs for autonomous weed detection, which secured 3rd place at Infosys Techzooka.",
-      url: "https://github.com/Dhana-27/MicroZard",
+      description: "A lizard-inspired robot for hydro-agro clearing, using CNNs for autonomous weed detection. Secured 3rd place at Infosys Techzooka.",
+      url: "https://github.com/Dhana-27/MicroZard-A-lizard-inspired-Robot-for-Hydroagroclearing",
     },
     {
       name: "PhishShield",
