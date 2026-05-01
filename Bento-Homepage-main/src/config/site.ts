@@ -197,7 +197,7 @@ export const siteConfig: SiteConfig = {
   
 
   map: {
-    accessToken: "YOUR_KEY",
+    accessToken: "YOUR_KEY_HERE",
     center: [80.2707, 13.0827],
     zoom: 10,
     markers: [
