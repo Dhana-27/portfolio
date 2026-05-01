@@ -9,7 +9,7 @@ export interface SiteConfig {
     profile: {
         name: string;
         title : string;
-        /** Keyed by language prefix: "en-US", "en", "ja", etc. "en" is the fallback. */
+        /** Keyed by language prefix: "zh", "en", "ja", etc. "en" is the fallback. */
         description: Record<string, string>;
         avatar: string;
         aliases?: string[];  // Typewriter cycling names
