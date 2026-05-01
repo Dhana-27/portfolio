@@ -10,6 +10,7 @@ import { siteConfig } from "@/config/site";
    Blog Card — Halo 2.x Public Content API
    ============================================================ */
 
+export function BlogCard() {
     const blogConfig = siteConfig.blog;
     const posts = blogConfig?.posts ?? [];
     
