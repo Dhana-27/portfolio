@@ -455,7 +455,7 @@ export function GitHubHeatmapCard() {
                         <g ref={snakeLayerRef} className="pointer-events-none" />
                     </svg>
                 ) : (
-                    <p className="text-sm text-text-tertiary">无法加载贡献数据</p>
+                    <p className="text-sm text-text-tertiary">Unable to load contribution data</p>
                 )}
 
                 {/* Tooltip */}
@@ -473,15 +473,15 @@ export function GitHubHeatmapCard() {
                         }}
                     >
                         {tooltip.count > 0
-                            ? `${formatDate(tooltip.date)}：${tooltip.count} Contributions`
-                            : `${formatDate(tooltip.date)}：无贡献`}
+                            ? `${formatDate(tooltip.date)}: ${tooltip.count} contributions`
+                            : `${formatDate(tooltip.date)}: No contributions`}
                     </motion.div>
                 )}
             </div>
 
             {/* Legend */}
             <div className="flex items-center gap-1.5 text-xs text-text-tertiary self-end">
-                <span>少</span>
+                <span>Less</span>
                 {LEVEL_OPACITY.map((op, i) => (
                     <div
                         key={i}
@@ -493,7 +493,7 @@ export function GitHubHeatmapCard() {
                         }}
                     />
                 ))}
-                <span>多</span>
+                <span>More</span>
             </div>
         </GlassCard>
     );

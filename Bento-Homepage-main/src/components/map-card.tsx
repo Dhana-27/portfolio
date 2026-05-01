@@ -97,7 +97,7 @@ export function MapCard() {
             <div ref={cardRef} className="relative h-full">
                 <div className="map-header">
                     <span className="text-sm text-text-tertiary">
-                        {mapConfig.markers.length} 个城市
+                        {mapConfig.markers.length} {mapConfig.markers.length === 1 ? "city" : "cities"}
                     </span>
                 </div>
                 {shouldLoadMap ? (
@@ -117,9 +117,10 @@ function InteractiveMap({ mapConfig }: { mapConfig: MapConfig }) {
     const isDark = useIsDark();
     const visitorLocation = useDynamicLocation();
 
-    const hefeiCoords: [number, number] = useMemo(() => {
-        const hefeiMarker = mapConfig.markers.find((m) => m.name === "合肥");
-        return hefeiMarker ? hefeiMarker.coordinates : [117.2272, 31.8206];
+    const homeCoordsRef = useMemo(() => {
+        // Find first marker, use Chennai as fallback
+        const homeMarker = mapConfig.markers[0];
+        return homeMarker ? homeMarker.coordinates : [80.2707, 13.0827];
     }, [mapConfig.markers]);
 
     const visitorCoords: [number, number] | null = useMemo(() => {
@@ -127,8 +128,8 @@ function InteractiveMap({ mapConfig }: { mapConfig: MapConfig }) {
     }, [visitorLocation]);
 
     const distanceKm = useMemo(() => {
-        return visitorCoords ? haversineKm(hefeiCoords, visitorCoords) : null;
-    }, [hefeiCoords, visitorCoords]);
+        return visitorCoords ? haversineKm(homeCoordsRef, visitorCoords) : null;
+    }, [homeCoordsRef, visitorCoords]);
 
     const drawArc = useCallback(
         (map: MapboxMap, mapboxgl: MapboxApi) => {
@@ -150,17 +151,16 @@ function InteractiveMap({ mapConfig }: { mapConfig: MapConfig }) {
                         closeButton: false,
                         className: "map-popup",
                     }).setHTML(
-                        `<span class="map-popup-content">${visitorLocation!.city}（你的位置）</span>`
+                        `<span class="map-popup-content">${visitorLocation!.city} (Your location)</span>`
                     )
                 )
                 .addTo(map);
 
-            const arcCoords = generateArc(hefeiCoords, visitorCoords);
+            const arcCoords = generateArc(homeCoordsRef, visitorCoords);
             const midPoint = arcCoords[Math.floor(arcCoords.length / 2)];
 
             if (distanceKm) {
-                const lang = navigator.language || "en";
-                const labelText = lang.startsWith("en-US") ? "与您距离我" : "Distance from me:";
+                const labelText = "Distance from me:";
                 const labelEl = document.createElement("div");
                 labelEl.className = "map-arc-distance map-dynamic-marker";
                 labelEl.innerHTML = `<span class="opacity-80 mr-1 text-[11px] font-normal tracking-wide">${labelText}</span><span class="font-bold text-[12px]">${distanceKm}</span><span class="text-[10px] opacity-80 ml-[2px]">km</span>`;
@@ -203,7 +203,7 @@ function InteractiveMap({ mapConfig }: { mapConfig: MapConfig }) {
                 },
             });
         },
-        [visitorCoords, visitorLocation, hefeiCoords, distanceKm, isDark],
+        [visitorCoords, visitorLocation, homeCoordsRef, distanceKm, isDark],
     );
 
     useEffect(() => {
@@ -235,12 +235,7 @@ function InteractiveMap({ mapConfig }: { mapConfig: MapConfig }) {
                 if (!map) return;
                 map.setConfigProperty("basemap", "lightPreset", isDark ? "night" : "day");
 
-                const lang = navigator.language || "en";
-                const mapLang = lang.startsWith("en-US") || lang.startsWith("zh-Hant")
-                    ? "zh-Hant"
-                    : lang.startsWith("en-US")
-                        ? "zh-Hans"
-                        : lang.split("-")[0];
+                const mapLang = lang.split("-")[0] || "en";
                 map.setConfigProperty("basemap", "language", mapLang);
 
                 for (const marker of mapConfig.markers) {
