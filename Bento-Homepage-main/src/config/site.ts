@@ -8,7 +8,7 @@
 export interface SiteConfig {
     profile: {
         name: string;
-        role : string;
+        title : string;
         /** Keyed by language prefix: "zh", "en", "ja", etc. "en" is the fallback. */
         description: Record<string, string>;
         avatar: string;
@@ -103,7 +103,7 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   profile: {
     name: "DHANALAKSHMI K",
-    role: "Computer Science & Cybersecurity",
+    title: "Computer Science & Cybersecurity",
     description: {
       en: "B.E. Student at Sri Sai Ram Institute of Technology focused on secure systems, OSINT, and AI-driven solutions.",
     },
