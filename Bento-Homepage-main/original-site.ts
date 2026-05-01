@@ -234,6 +234,5 @@ export const siteConfig: SiteConfig = {
     gradientVia: "#090909",
     gradientTo: "#111116",
   },
-  
 };
     

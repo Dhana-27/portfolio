@@ -195,8 +195,7 @@ export function WeatherCard() {
     const WeatherIcon = data ? getWeatherStyles(data.code).icon : Cloud;
 
     // Optional: date string for Apple-like header
-    const dateStr = new Date().toLocaleDateString('zh-CN', { weekday: 'short', month: 'short', day: 'numeric' });
-
+    const dateStr = new Date().toLocaleDateString('en-US', {weekday: 'long',month: 'long',day: 'numeric',year: 'numeric' });
     return (
         <GlassCard
             variant="immersive"
@@ -220,7 +219,7 @@ export function WeatherCard() {
                 <div className="flex justify-between items-start w-full">
                     <div className="flex flex-col">
                         <h2 className="text-xl font-bold tracking-tight drop-shadow-sm flex items-center gap-1">
-                            {location?.city || (siteConfig.weather?.city || "合肥")}
+                            {location?.city || (siteConfig.weather?.city || "Chennai")}
                         </h2>
                         <span className="text-xs font-medium opacity-90 drop-shadow-sm mt-0.5">
                             {dateStr}
@@ -246,12 +245,12 @@ export function WeatherCard() {
                                     {data.condition}
                                 </span>
                                 <span className="text-xs font-medium opacity-90 drop-shadow-sm leading-none pb-0.5">
-                                    最高 {data.high}&deg; 最低 {data.low}&deg;
+                                    High {data.high}° Low {data.low}°
                                 </span>
                             </div>
                         </motion.div>
                     ) : error ? (
-                        <div className="text-sm opacity-80">获取天气失败</div>
+                        <div className="text-sm opacity-80">Failed to fetch weather</div>
                     ) : (
                         <div className="flex w-full items-center justify-center mb-4">
                             <Loader2 className="h-6 w-6 animate-spin opacity-60" />
@@ -265,17 +264,17 @@ export function WeatherCard() {
 
 // Map WMO codes to descriptions
 function getWeatherCondition(code: number): string {
-    if (code === 0) return "晴天";
-    if (code === 1) return "晴间多云";
-    if (code === 2) return "部分多云";
-    if (code === 3) return "阴天";
-    if (code === 45 || code === 48) return "雾";
-    if (code >= 51 && code <= 67) return "雨";
-    if (code >= 71 && code <= 77) return "雪";
-    if (code >= 80 && code <= 82) return "阵雨";
-    if (code >= 85 && code <= 86) return "阵雪";
-    if (code >= 95) return "雷暴";
-    return "未知";
+    if (code === 0) return "Clear Sky";
+    if (code === 1) return "Mostly Clear";
+    if (code === 2) return "Partly Cloudy";
+    if (code === 3) return "Overcast";
+    if (code === 45 || code === 48) return "Fog";
+    if (code >= 51 && code <= 67) return "Rain";
+    if (code >= 71 && code <= 77) return "Snow";
+    if (code >= 80 && code <= 82) return "Showers";
+    if (code >= 85 && code <= 86) return "Snow Showers";
+    if (code >= 95) return "Thunderstorm";
+    return "Unknown";
 }
 
 // Map WMO codes to Apple Weather-like gradients and icons
