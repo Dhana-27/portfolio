@@ -12,7 +12,7 @@ import { PhotoStackCard } from "@/components/photo-stack-card";
 import { NowPlayingCard } from "@/components/now-playing-card";
 import { GitHubHeatmapCard } from "@/components/github-heatmap-card";
 import { VRChatStatusCard } from "@/components/vrchat-status-card";
-import { MapCard } from "@/components/map-card";
+import { CertStatCard } from "@/components/cert-stat-card";
 import { BlogCard } from "@/components/blog-card";
 import { WeatherCard } from "@/components/weather-card";
 
@@ -80,7 +80,7 @@ export default function Home() {
 
         {/* ── Section C (Rows 10-11): Tools & Location ── */}
         <BentoGridItem className="md:col-span-2 md:row-span-3">
-          <MapCard />
+          <CertStatCard />
         </BentoGridItem>
 
         <BentoGridItem className="md:col-span-2 md:row-span-3">

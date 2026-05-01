@@ -16,9 +16,11 @@ export function FriendsCard() {
 
     return (
         <GlassCard variant="panel" className="flex h-full flex-col items-center justify-center gap-3 p-5 md:p-6">
-            {/* <h2 className="text-xl font-semibold text-text-primary flex items-center gap-2">
-                Friends
-            </h2> */}
+            <div className="flex w-full items-center justify-between mb-1">
+                <h3 className="text-[14px] font-semibold text-text-primary tracking-tight">
+                    Licenses & Certifications
+                </h3>
+            </div>
 
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 xl:grid-cols-4 gap-4">
                 {friends.map((friend) => (
@@ -39,7 +41,7 @@ export function FriendsCard() {
                         transition={SPRING_GENTLE}
                     >
                         <motion.div
-                            className="prism-avatar-disc relative h-16 w-16 overflow-hidden rounded-full"
+                            className="prism-avatar-disc relative h-12 w-12 overflow-hidden rounded-md bg-white/5 p-1 flex items-center justify-center"
                             variants={{
                                 initial: {
                                     rotate: 0,
@@ -61,12 +63,12 @@ export function FriendsCard() {
                             <img
                                 src={friend.avatar}
                                 alt={friend.name}
-                                className="object-cover w-full h-full"
+                                className="object-contain w-full h-full drop-shadow-sm"
                                 loading="lazy"
                                 decoding="async"
                             />
                         </motion.div>
-                        <span className="text-[13px] font-medium text-text-secondary group-hover:text-text-primary transition-colors duration-200 text-center line-clamp-1 w-full">
+                        <span className="text-[11px] font-medium text-text-secondary group-hover:text-text-primary transition-colors duration-200 text-center line-clamp-2 w-full leading-tight">
                             {friend.name}
                         </span>
                     </motion.a>
