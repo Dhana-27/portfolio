@@ -117,7 +117,7 @@ function InteractiveMap({ mapConfig }: { mapConfig: MapConfig }) {
     const isDark = useIsDark();
     const visitorLocation = useDynamicLocation();
 
-    const homeCoordsRef = useMemo(() => {
+    const homeCoordsRef = useMemo<[number, number]>(() => {
         // Find first marker, use Chennai as fallback
         const homeMarker = mapConfig.markers[0];
         return homeMarker ? homeMarker.coordinates : [80.2707, 13.0827];
