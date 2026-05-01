@@ -160,7 +160,7 @@ function InteractiveMap({ mapConfig }: { mapConfig: MapConfig }) {
 
             if (distanceKm) {
                 const lang = navigator.language || "en";
-                const labelText = lang.startsWith("zh") ? "与您距离我" : "Distance from me:";
+                const labelText = lang.startsWith("en-US") ? "与您距离我" : "Distance from me:";
                 const labelEl = document.createElement("div");
                 labelEl.className = "map-arc-distance map-dynamic-marker";
                 labelEl.innerHTML = `<span class="opacity-80 mr-1 text-[11px] font-normal tracking-wide">${labelText}</span><span class="font-bold text-[12px]">${distanceKm}</span><span class="text-[10px] opacity-80 ml-[2px]">km</span>`;
@@ -236,9 +236,9 @@ function InteractiveMap({ mapConfig }: { mapConfig: MapConfig }) {
                 map.setConfigProperty("basemap", "lightPreset", isDark ? "night" : "day");
 
                 const lang = navigator.language || "en";
-                const mapLang = lang.startsWith("zh-TW") || lang.startsWith("zh-Hant")
+                const mapLang = lang.startsWith("en-US") || lang.startsWith("zh-Hant")
                     ? "zh-Hant"
-                    : lang.startsWith("zh")
+                    : lang.startsWith("en-US")
                         ? "zh-Hans"
                         : lang.split("-")[0];
                 map.setConfigProperty("basemap", "language", mapLang);

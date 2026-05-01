@@ -473,7 +473,7 @@ export function GitHubHeatmapCard() {
                         }}
                     >
                         {tooltip.count > 0
-                            ? `${formatDate(tooltip.date)}：${tooltip.count} 次贡献`
+                            ? `${formatDate(tooltip.date)}：${tooltip.count} Contributions`
                             : `${formatDate(tooltip.date)}：无贡献`}
                     </motion.div>
                 )}
