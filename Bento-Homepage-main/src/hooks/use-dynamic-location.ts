@@ -52,20 +52,20 @@ async function fetchLocation(): Promise<LocationData> {
             const lat = pos.coords.latitude;
             const lon = pos.coords.longitude;
 
-            // Reverse geocode for city name (Chinese)
+            // Reverse geocode for city name
             try {
                 const geoRes = await fetch(
-                    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=zh`
+                    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`
                 );
                 const geoData = await geoRes.json();
                 return {
                     lat,
                     lon,
-                    city: geoData.city || geoData.locality || "当前位置",
+                    city: geoData.city || geoData.locality || "Current Location",
                     source: "geolocation",
                 };
             } catch {
-                return { lat, lon, city: "当前位置", source: "geolocation" };
+                return { lat, lon, city: "Current Location", source: "geolocation" };
             }
         } catch {
             // Permission missing or request failed — fall through to IP.
@@ -85,7 +85,7 @@ async function fetchLocation(): Promise<LocationData> {
             return {
                 lat: ipData.latitude,
                 lon: ipData.longitude,
-                city: ipData.city || ipData.region || "当前位置",
+                city: ipData.city || ipData.region || "Current Location",
                 source: "ip",
             };
         }
@@ -97,9 +97,9 @@ async function fetchLocation(): Promise<LocationData> {
 
     // 3. Ultimate fallback: site config
     const configLoc = siteConfig.weather || {
-        city: "合肥",
-        lat: 31.8206,
-        lon: 117.2272,
+        city: "Chennai",
+        lat: 13.0827,
+        lon: 80.2707,
     };
     return {
         lat: configLoc.lat,

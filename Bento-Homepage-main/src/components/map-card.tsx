@@ -235,6 +235,7 @@ function InteractiveMap({ mapConfig }: { mapConfig: MapConfig }) {
                 if (!map) return;
                 map.setConfigProperty("basemap", "lightPreset", isDark ? "night" : "day");
 
+                const lang = navigator.language || "en";
                 const mapLang = lang.split("-")[0] || "en";
                 map.setConfigProperty("basemap", "language", mapLang);
 

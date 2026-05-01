@@ -85,10 +85,10 @@ export function VRChatStatusCard() {
         const minutes = Math.floor(diff / 60000);
         const hours = Math.floor(diff / 3600000);
         const days = Math.floor(diff / 86400000);
-        if (days > 0) setLastLoginLabel(`${days}天前`);
-        else if (hours > 0) setLastLoginLabel(`${hours}小时前`);
-        else if (minutes > 0) setLastLoginLabel(`${minutes}分钟前`);
-        else setLastLoginLabel("刚刚");
+        if (days > 0) setLastLoginLabel(`${days}d ago`);
+        else if (hours > 0) setLastLoginLabel(`${hours}h ago`);
+        else if (minutes > 0) setLastLoginLabel(`${minutes}m ago`);
+        else setLastLoginLabel("Just now");
     }, []);
 
     const fetchStatus = useCallback(() => {
@@ -149,7 +149,7 @@ export function VRChatStatusCard() {
                     <div className="h-12 rounded" style={{ backgroundColor: "var(--glass-inner-border)", opacity: 0.3 }} />
                 </div>
             ) : error ? (
-                <p className="text-sm text-text-tertiary text-center py-4">无法加载 VRChat 状态</p>
+                <p className="text-sm text-text-tertiary text-center py-4">Unable to load VRChat status</p>
             ) : data ? (
                 <AnimatePresence mode="wait">
                     <motion.div
