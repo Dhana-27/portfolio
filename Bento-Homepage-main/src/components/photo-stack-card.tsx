@@ -13,8 +13,8 @@ const CARD_OFFSET = 8
 const ROTATION_FACTOR = 4;
 const IMAGE_EXT_RE = /\.(jpe?g|png|webp|avif)$/i;
 
-function optimizedPhotoUrl(filename: string) {
-    return `/optimized/photos/${filename.replace(IMAGE_EXT_RE, ".webp")}`;
+function photoUrl(filename: string) {
+    return `/photos/${filename}`;
 }
 
 /** Deterministic pseudo-random rotation based on index */
@@ -39,7 +39,7 @@ export function PhotoStackCard({ photos }: PhotoStackCardProps) {
         () =>
             photos.map((filename, index) => ({
                 id: index,
-                imageUrl: optimizedPhotoUrl(filename),
+                imageUrl: photoUrl(filename),
                 rotation: getRotation(index),
             })),
         [photos]
@@ -60,8 +60,9 @@ export function PhotoStackCard({ photos }: PhotoStackCardProps) {
         return (
             <GlassCard variant="media" className="flex flex-col items-center justify-center gap-3 p-12">
                 <ImageIcon size={40} className="text-text-tertiary" />
-                <p className="text-sm text-text-tertiary">
-                    Place photos in <code className="prism-badge prism-static rounded-md px-1.5 py-0.5 text-xs">public/photos/</code>
+                <p className="text-sm text-text-tertiary text-center">
+                    Place your certificate images in<br/>
+                    <code className="prism-badge prism-static rounded-md px-1.5 py-0.5 text-xs">public/photos/</code>
                 </p>
             </GlassCard>
         );
