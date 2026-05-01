@@ -183,7 +183,7 @@ export const siteConfig: SiteConfig = {
   spotify: {
     enabled: true,
     user: "Dhanalakshmi K",
-    playlistUrl: "https://open.spotify.com/playlist/37i9dQZEVXd2E8Qfsa20go?si=f8c3df048cb54fc5",
+    playlistUrl: "https://open.spotify.com/playlist/37i9dQZEVXcXHWVVT0lfDq",
   },
 
   github: {
