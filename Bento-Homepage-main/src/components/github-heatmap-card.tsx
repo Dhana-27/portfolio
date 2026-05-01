@@ -38,7 +38,7 @@ const DAYS = ["", "Mon", "", "Wed", "", "Fri", ""];
 
 function formatDate(dateStr: string): string {
     const d = new Date(dateStr);
-    return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
 export function GitHubHeatmapCard() {
@@ -365,7 +365,7 @@ export function GitHubHeatmapCard() {
                 <h3 className="text-lg font-semibold text-text-primary">GitHub</h3>
                 {data && (
                     <span className="text-sm text-text-tertiary">
-                        过去一年 <strong className="text-text-primary">{data.total.lastYear}</strong> 次贡献
+                        Past year <strong className="text-text-primary">{data.total.lastYear}</strong> contributions
                     </span>
                 )}
             </div>

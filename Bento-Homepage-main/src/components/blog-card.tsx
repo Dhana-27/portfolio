@@ -43,12 +43,12 @@ function timeAgo(dateStr: string): string {
     const months = Math.floor(days / 30);
     const years = Math.floor(days / 365);
 
-    if (years > 0) return `${years}年前`;
-    if (months > 0) return `${months}个月前`;
-    if (days > 0) return `${days}天前`;
-    if (hours > 0) return `${hours}小时前`;
-    if (minutes > 0) return `${minutes}分钟前`;
-    return "刚刚";
+    if (years > 0) return `${years} years ago`;
+    if (months > 0) return `${months} months ago`;
+    if (days > 0) return `${days} days ago`;
+    if (hours > 0) return `${hours} hours ago`;
+    if (minutes > 0) return `${minutes} minutes ago`;
+    return "Just now";
 }
 
 export function BlogCard() {
@@ -84,7 +84,7 @@ export function BlogCard() {
                     >
                         <BookOpen size={13} style={{ color: "var(--tint-color)" }} />
                     </div>
-                    <h3 className="text-[14px] font-semibold text-text-primary tracking-tight">博客</h3>
+                    <h3 className="text-[14px] font-semibold text-text-primary tracking-tight">Blog</h3>
                 </div>
                 <a
                     href={blogConfig.url}
@@ -92,7 +92,7 @@ export function BlogCard() {
                     rel="noopener noreferrer"
                     className="group flex items-center gap-0.5 text-[11px] font-medium text-text-tertiary hover:text-tint transition-colors duration-150"
                 >
-                    全部
+                    View All
                     <ArrowUpRight
                         size={11}
                         className="opacity-70 transition-opacity duration-150 group-hover:opacity-100"
@@ -182,7 +182,7 @@ export function BlogCard() {
                         className="text-[13px] py-6 text-center"
                         style={{ color: "var(--text-tertiary)", opacity: 0.55 }}
                     >
-                        暂无博文
+                        No posts yet
                     </p>
                 )}
             </div>

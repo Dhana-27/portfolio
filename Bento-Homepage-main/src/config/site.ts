@@ -49,7 +49,7 @@ export interface SiteConfig {
   };
 
     github?: {
-        /** GitHub 用户名，用于贡献热力图 */
+        /** GitHub username for contribution heatmap */
         username: string;
     };
     blog?: {
@@ -58,11 +58,11 @@ export interface SiteConfig {
     size?: number;
   };
     vrchat?: {
-        /** VRCX-Cloud API 地址 */
+        /** VRCX-Cloud API base URL */
         apiBase: string;
         /** VRChat User ID */
         userId: string;
-        /** Bio 展示行数，默认 3 */
+        /** Number of bio lines to display, default 3 */
         bioLines?: number;
     };
     map?: {
