@@ -6,99 +6,99 @@
 // ============================================================
 
 export interface SiteConfig {
-    profile: {
-        name: string;
-        title : string;
-        /** Keyed by language prefix: "en-US", "en", "ja", etc. "en" is the fallback. */
-        description: Record<string, string>;
-        avatar: string;
-        avatarFallback?: string;
-        avatarAlt?: string;
-        aliases?: string[];  // Typewriter cycling names
-        location?: string;
-    };
-    interests: string[];
-    hardware: {
-        category: string;
-        icon: string;   // Lucide icon name: "Apple", "Monitor", etc.
-        items: string[];
-    }[];
-    software: {
-        name: string;
-        icon: string;   // filename = /icons/software/{name}.svg | URL = CDN | "" = letter fallback
-    }[];
-    socialLinks: {
-        platform: "github" | "telegram" | "discord" | "email" | "twitter" | "linkedin" | "youtube" | "bilibili" | "vrchat" | "steam" | "blog" | "vrcx-cloud" | "website";
-        url: string;
-        enabled: boolean;
-    }[];
-    friends: {
-        name: string;
-        avatar: string;
-        url: string;
-        description?: string;
-    }[];
-    projects: {
-        name: string;
-        description: string;
-        url: string;
-        tags?: string[];
-    }[];
-    spotify?: {
+  profile: {
+    name: string;
+    title: string;
+    /** Keyed by language prefix: "en-US", "en", "ja", etc. "en" is the fallback. */
+    description: Record<string, string>;
+    avatar: string;
+    avatarFallback?: string;
+    avatarAlt?: string;
+    aliases?: string[];  // Typewriter cycling names
+    location?: string;
+  };
+  interests: string[];
+  hardware: {
+    category: string;
+    icon: string;   // Lucide icon name: "Apple", "Monitor", etc.
+    items: string[];
+  }[];
+  software: {
+    name: string;
+    icon: string;   // filename = /icons/software/{name}.svg | URL = CDN | "" = letter fallback
+  }[];
+  socialLinks: {
+    platform: "github" | "telegram" | "discord" | "email" | "twitter" | "linkedin" | "youtube" | "bilibili" | "vrchat" | "steam" | "blog" | "vrcx-cloud" | "website";
+    url: string;
+    enabled: boolean;
+  }[];
+  friends: {
+    name: string;
+    avatar: string;
+    url: string;
+    description?: string;
+  }[];
+  projects: {
+    name: string;
+    description: string;
+    url: string;
+    tags?: string[];
+  }[];
+  spotify?: {
     enabled: boolean;
     user: string;
     playlistUrl: string;
   };
 
-    github?: {
-        /** GitHub username for contribution heatmap */
-        username: string;
-    };
-    blog?: {
-        enabled: boolean;
-        posts?: { title: string; description: string; url: string; date?: string }[];
-    };
-    vrchat?: {
-        /** VRCX-Cloud API base URL */
-        apiBase: string;
-        /** VRChat User ID */
-        userId: string;
-        /** Number of bio lines to display, default 3 */
-        bioLines?: number;
-    };
-    map?: {
-        /** Mapbox public access token (pk.xxx) */
-        accessToken: string;
-        /** Map center: [lng, lat] */
-        center: [number, number];
-        /** Initial zoom level (1-18) */
-        zoom: number;
-        /** City markers */
-        markers: {
-            name: string;
-            coordinates: [number, number]; // [lng, lat]
-            emoji?: string;
-        }[];
-    };
-    weather?: {
-        city: string;
-        lat: number;
-        lon: number;
-    };
-    seo: {
-        title: string;
-        description: string;
-        keywords: string[];
-        ogImage?: string;
-        siteUrl: string;
-    };
-    theme: {
-        tintColor: string;
-        tintColorRGB: string;
-        gradientFrom: string;
-        gradientVia: string;
-        gradientTo: string;
-    };
+  github?: {
+    /** GitHub username for contribution heatmap */
+    username: string;
+  };
+  blog?: {
+    enabled: boolean;
+    posts?: { title: string; description: string; url: string; date?: string }[];
+  };
+  vrchat?: {
+    /** VRCX-Cloud API base URL */
+    apiBase: string;
+    /** VRChat User ID */
+    userId: string;
+    /** Number of bio lines to display, default 3 */
+    bioLines?: number;
+  };
+  map?: {
+    /** Mapbox public access token (pk.xxx) */
+    accessToken: string;
+    /** Map center: [lng, lat] */
+    center: [number, number];
+    /** Initial zoom level (1-18) */
+    zoom: number;
+    /** City markers */
+    markers: {
+      name: string;
+      coordinates: [number, number]; // [lng, lat]
+      emoji?: string;
+    }[];
+  };
+  weather?: {
+    city: string;
+    lat: number;
+    lon: number;
+  };
+  seo: {
+    title: string;
+    description: string;
+    keywords: string[];
+    ogImage?: string;
+    siteUrl: string;
+  };
+  theme: {
+    tintColor: string;
+    tintColorRGB: string;
+    gradientFrom: string;
+    gradientVia: string;
+    gradientTo: string;
+  };
 }
 
 export const siteConfig: SiteConfig = {
@@ -136,7 +136,7 @@ export const siteConfig: SiteConfig = {
     { name: "Vertex AI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" },
     { name: "FlutterFlow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" }
   ],
-    socialLinks: [
+  socialLinks: [
     { platform: "github", url: "https://github.com/Dhana-27", enabled: true },
     { platform: "linkedin", url: "https://linkedin.com/in/dhanalakshmi-k-tech", enabled: true },
     { platform: "email", url: "mailto:dhanalakshmi.k.tech@gmail.com", enabled: true },
@@ -146,7 +146,7 @@ export const siteConfig: SiteConfig = {
   friends: [
     {
       name: "Sri Sai Ram Institute of Technology",
-      avatar: "https://sairam.edu.in/wp-content/uploads/2014/11/logo.png",
+      avatar: "https://www.google.com/s2/favicons?domain=sairamit.edu.in&sz=128",
       url: "https://sairamit.edu.in/",
       description: "My Engineering Institution"
     },
@@ -157,31 +157,31 @@ export const siteConfig: SiteConfig = {
       description: "CodeChef & Development Projects"
     }
   ],
-    projects: [
+  projects: [
     {
       name: "NightHawk",
       description: "A dark web monitoring and threat intelligence platform utilizing OSINT to aggregate data points across TOR and I2P.",
       url: "https://github.com/Dhana-27/NightHawk",
     },
     {
-      name: "EduPulse AI",
-      description: "An enterprise-grade faculty evaluation platform featuring AI-driven performance analytics and sentiment tracking.",
-      url: "https://github.com/Dhana-27/EduPulse-AI",
-    },
-    {
       name: "MicroZard",
-      description: "A lizard-inspired robot for hydro-agro clearing, using CNNs for autonomous weed detection. Secured 3rd place at Infosys Techzooka.",
+      description: "AI-based weed detection system for farmers using Machine Learning",
       url: "https://github.com/Dhana-27/MicroZard-A-lizard-inspired-Robot-for-Hydroagroclearing",
     },
     {
-      name: "PhishShield",
-      description: "A real-time AI-powered phishing detection system leveraging GPU acceleration for high-speed threat analysis.",
-      url: "https://github.com/Dhana-27",
+      name: "RBAC",
+      description: "A full-stack web application demonstrating Authentication and Role-Based Access Control (RBAC) for cybersecurity.",
+      url: "https://github.com/Dhana-27/RBAC-APPLICATION",
     },
     {
-      name: "Agentic Identity Verification",
-      description: "Continuous identity verification system for zero-trust environments using FastAPI and GPT-4o-mini.",
-      url: "https://github.com/Dhana-27",
+      name: "MIRI",
+      description: "A specialized project focusing on Machine Intelligence and Robotics.",
+      url: "https://github.com/Dhana-27/MIRI-Micro-Intersection-Risk-Intelligence-website-project",
+    },
+    {
+      name: "Scheme Connect",
+      description: "An interactive platform for connecting and visualizing various computational schemes.",
+      url: "https://github.com/Dhana-27/SCHEME_CONNECT-WEBSITE",
     }
   ],
   spotify: {
@@ -205,7 +205,7 @@ export const siteConfig: SiteConfig = {
     ]
   },
 
-  
+
 
   map: {
     accessToken: "YOUR_KEY_HERE",
