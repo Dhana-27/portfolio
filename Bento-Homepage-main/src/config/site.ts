@@ -12,6 +12,8 @@ export interface SiteConfig {
         /** Keyed by language prefix: "en-US", "en", "ja", etc. "en" is the fallback. */
         description: Record<string, string>;
         avatar: string;
+        avatarFallback?: string;
+        avatarAlt?: string;
         aliases?: string[];  // Typewriter cycling names
         location?: string;
     };
@@ -26,7 +28,7 @@ export interface SiteConfig {
         icon: string;   // filename = /icons/software/{name}.svg | URL = CDN | "" = letter fallback
     }[];
     socialLinks: {
-        platform: "github" | "telegram" | "discord" | "email" | "twitter" | "linkedin" | "youtube" | "bilibili" | "vrchat" | "steam" | "blog" | "vrcx-cloud";
+        platform: "github" | "telegram" | "discord" | "email" | "twitter" | "linkedin" | "youtube" | "bilibili" | "vrchat" | "steam" | "blog" | "vrcx-cloud" | "website";
         url: string;
         enabled: boolean;
     }[];
@@ -53,10 +55,9 @@ export interface SiteConfig {
         username: string;
     };
     blog?: {
-    enabled: boolean;
-    url: string; // This must be here to fix the red line!
-    size?: number;
-  };
+        enabled: boolean;
+        posts?: { title: string; description: string; url: string; date?: string }[];
+    };
     vrchat?: {
         /** VRCX-Cloud API base URL */
         apiBase: string;
@@ -107,7 +108,9 @@ export const siteConfig: SiteConfig = {
     description: {
       en: "B.E. Student at Sri Sai Ram Institute of Technology focused on secure systems, OSINT, and AI-driven solutions.",
     },
-    avatar: "/avatar.jpg",
+    avatar: "https://github.com/Dhana-27.png",
+    avatarFallback: "DL",
+    avatarAlt: "Dhana Lakshmi Profile",
     location: "Chennai, India",
   },
 
@@ -128,15 +131,16 @@ export const siteConfig: SiteConfig = {
   ],
 
   software: [
-    { name: "VS Code", icon: "vscode" },
-    { name: "Google Cloud", icon: "googlecloud" },
-    { name: "Vertex AI", icon: "vertexai" },
-    { name: "FlutterFlow", icon: "flutter" }
+    { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" },
+    { name: "Google Cloud", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" },
+    { name: "Vertex AI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" },
+    { name: "FlutterFlow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" }
   ],
     socialLinks: [
     { platform: "github", url: "https://github.com/Dhana-27", enabled: true },
     { platform: "linkedin", url: "https://linkedin.com/in/dhanalakshmi-k-tech", enabled: true },
-    { platform: "email", url: "mailto:dhanalakshmi.k.tech@gmail.com", enabled: true }
+    { platform: "email", url: "mailto:dhanalakshmi.k.tech@gmail.com", enabled: true },
+    { platform: "website", url: "https://sairamit.edu.in/", enabled: true }
   ],
 
   friends: [
@@ -190,8 +194,15 @@ export const siteConfig: SiteConfig = {
     username: "Dhana-27",
   },
   blog: {
-    enabled: false,
-    url: "https://github.com/Dhana-27", // Adding this fixes the red line under 'blog'
+    enabled: true,
+    posts: [
+      {
+        title: "My AI Project Journey",
+        description: "Sharing insights on building ML systems",
+        url: "https://www.linkedin.com/in/dhanalakshmi-k-tech/recent-activity/all/",
+        date: "Just now"
+      }
+    ]
   },
 
   

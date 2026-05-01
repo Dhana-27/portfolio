@@ -15,6 +15,7 @@ import {
     Tv,
     BookText,
     Cloud,
+    Globe,
 } from "lucide-react";
 import { VRChatIcon } from "@/components/icons/vrchat-icon";
 import { SteamIcon } from "@/components/icons/steam-icon";
@@ -32,6 +33,7 @@ const iconMap: Record<string, React.ComponentType<{ size?: number }>> = {
     steam: SteamIcon,
     blog: BookText,
     "vrcx-cloud": Cloud,
+    website: Globe,
 };
 
 /** Platform brand colors — subtle, tasteful */
@@ -48,6 +50,7 @@ const platformColors: Record<string, string> = {
     steam: "#acdbf5",
     blog: "#ff9f0a",
     "vrcx-cloud": "#bf5af2",
+    website: "#10b981",
 };
 
 /** Human-readable short labels */
@@ -64,6 +67,7 @@ const platformLabels: Record<string, string> = {
     steam: "Steam",
     blog: "Blog",
     "vrcx-cloud": "VRCX",
+    website: "College",
 };
 
 export function SocialCard() {
