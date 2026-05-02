@@ -65,6 +65,11 @@ export function ProjectsCard() {
 
     return (
         <GlassCard variant="panel" className="flex h-full flex-col p-5 md:p-6">
+            <div className="flex w-full items-center justify-between mb-3">
+                <h3 className="text-[14px] font-semibold text-text-primary tracking-tight">
+                    Projects
+                </h3>
+            </div>
             <div className="flex flex-col">
                 {sorted.map((project, i) => {
                     const repoStats = stats[project.url];
