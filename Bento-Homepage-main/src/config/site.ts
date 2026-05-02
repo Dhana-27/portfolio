@@ -151,64 +151,64 @@ export const siteConfig: SiteConfig = {
 
   friends: [
     {
-      name: "Google AI Essentials",
-      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg",
+      name: "AWS Solutions Architect",
+      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+      url: "https://linkedin.com/in/dhanalakshmi-k-tech",
+      description: "Amazon Web Services"
+    },
+    {
+      name: "Google Cybersecurity",
+      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg",
       url: "https://linkedin.com/in/dhanalakshmi-k-tech",
       description: "Google"
     },
     {
-      name: "Cybersecurity Threat Landscape",
-      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg",
+      name: "CompTIA Security+",
+      avatar: "https://upload.wikimedia.org/wikipedia/commons/1/1a/CompTIA_logo.svg",
       url: "https://linkedin.com/in/dhanalakshmi-k-tech",
-      description: "LinkedIn"
+      description: "CompTIA"
     },
     {
-      name: "Foundations of Cybersecurity",
-      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg",
+      name: "CEH v12",
+      avatar: "https://upload.wikimedia.org/wikipedia/commons/e/e8/EC-Council_logo.png",
       url: "https://linkedin.com/in/dhanalakshmi-k-tech",
-      description: "Coursera"
+      description: "EC-Council"
     },
     {
-      name: "UiPath Agentic Automation",
-      avatar: "https://upload.wikimedia.org/wikipedia/commons/2/25/UiPath_Logo.svg",
+      name: "Microsoft Azure Fundamentals",
+      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg",
       url: "https://linkedin.com/in/dhanalakshmi-k-tech",
-      description: "UiPath"
+      description: "Microsoft"
     },
     {
-      name: "IEEE Membership",
-      avatar: "https://upload.wikimedia.org/wikipedia/commons/2/21/IEEE_logo.svg",
+      name: "Cisco CCNA",
+      avatar: "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg",
       url: "https://linkedin.com/in/dhanalakshmi-k-tech",
-      description: "IEEE"
+      description: "Cisco"
     },
     {
-      name: "Google Solution Challenge",
-      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg",
+      name: "Red Hat System Administrator",
+      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redhat/redhat-plain.svg",
       url: "https://linkedin.com/in/dhanalakshmi-k-tech",
-      description: "GDSC"
+      description: "Red Hat"
     },
     {
-      name: "Database Management System",
-      avatar: "https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg",
+      name: "Kubernetes Administrator (CKA)",
+      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg",
       url: "https://linkedin.com/in/dhanalakshmi-k-tech",
-      description: "Infosys"
+      description: "CNCF"
     },
     {
-      name: "Connect and Protect: Networks",
-      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg",
+      name: "Docker Certified Associate",
+      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
       url: "https://linkedin.com/in/dhanalakshmi-k-tech",
-      description: "Google"
+      description: "Docker"
     },
     {
-      name: "Manage Security Risks",
-      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg",
+      name: "HashiCorp Terraform Associate",
+      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg",
       url: "https://linkedin.com/in/dhanalakshmi-k-tech",
-      description: "Google"
-    },
-    {
-      name: "Tools of the Trade: Linux & SQL",
-      avatar: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg",
-      url: "https://linkedin.com/in/dhanalakshmi-k-tech",
-      description: "Google"
+      description: "HashiCorp"
     }
   ],
   projects: [
@@ -271,6 +271,7 @@ export const siteConfig: SiteConfig = {
   },
 
   weather: {
+
     city: "Chennai",
     lat: 13.0827,
     lon: 80.2707,
